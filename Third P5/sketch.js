@@ -16,7 +16,7 @@ function draw() {
 }
 
 function guy(){
-  let size = 100;
+  let size = 200;
   let shift = size /2;
   let leg = size*0.08
   let x = width/2
@@ -27,7 +27,7 @@ function guy(){
   rect(x-shift, y + shift, leg *0.8,size*0.2);
   rect(x+ shift -(leg*0.8), y + shift, leg*0.8,size*0.2);
   strokeWeight(size*0.025);
-  line(x - (shift/2.5), y + (shift/2.5),(width/2) + (shift/2.5),y + (shift/2.5));
+  line(x - (shift/2.5), y + (shift/2.5),x + (shift/2.5),y + (shift/2.5));
   strokeWeight(0);
   fill("black");
   circle(x- (leg*3.5), y - (shift/30) ,leg);
