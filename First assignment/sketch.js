@@ -40,10 +40,11 @@ function draw() {
 // }
 
 function drawScene(){ //Draws the first scene
-  background("grey");
+  background("skyblue");
 sceneHeight = height;
-drawGrass();
 drawTrees();
+drawGrass();
+
 }
 
 function drawGrass(){ //Makes the grass base to the scene
@@ -63,8 +64,24 @@ for(let loop = 0; loop <= 2500; loop++){
 
 function drawTrees(){
   let base = sceneHeight *0.8;
-  let log =width *0.1;
-  let leaves = width * 0.2;
-  fill("brown")
-  rect(width/5,base,log,base-50)
+  let log =width *0.03;
+  let leaves = width * 0.17;
+  let loghieght = log *4;
+
+  for( let tree = 1; tree<= 5; tree ++){
+  fill("#654321");
+  stroke("black");
+  rect(width/5 *tree,base + 10 - loghieght,log,loghieght);
+  fill("green")
+  leaves = width * 0.17;
+  triangle(width/5 *tree - leaves/2.7 , base - 40, width/5*tree + leaves/1.7 ,base-40, width/5*tree + log/2, base - 100)
+  leaves = leaves*0.6
+  triangle(width/5 *tree- leaves/2, base - 80, width/5*tree + leaves/2 + log ,base-80, width/5*tree + log/2, base - 140)
+  leaves = leaves*0.7
+  triangle(width/5*tree - leaves/2, base - 120, width/5*tree + leaves/2 + log ,base-120, width/5*tree + log/2, base - 180)
+  leaves = leaves*0.7
+  triangle(width/5 *tree- leaves/2, base - 160, width/5*tree + leaves/2 + log ,base-160, width/5*tree + log/2, base - 220)
+  leaves = leaves*0.7
+  triangle(width/5*tree - leaves/2, base - 200, width/5*tree + leaves/2 + log ,base-200, width/5*tree + log/2, base - 260)
+  }
 }
