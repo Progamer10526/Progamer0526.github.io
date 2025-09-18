@@ -42,12 +42,14 @@ function draw() {
 function drawScene(){ //Draws the first scene
   background("skyblue");
 sceneHeight = height;
-drawTrees();
+drawback();
+// drawTrees();
 drawGrass();
 
 }
 
 function drawGrass(){ //Makes the grass base to the scene
+  strokeWeight(1);
 let base = sceneHeight *0.8;
 let grassX;
 let grassY;
@@ -87,4 +89,10 @@ treex = secondx/1.6
   leaves = leaves*0.7
   triangle(secondx*tree - leaves/2- treex, base - 200, secondx*tree + leaves/2- treex + log ,base-200, secondx*tree + log/2- treex, base - 260)
   }
+}
+
+function drawback(){
+  fill("grey");
+  strokeWeight(5);
+
 }
