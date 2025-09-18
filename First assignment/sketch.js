@@ -67,8 +67,9 @@ function drawTrees(){
   let log =width *0.03;
   let leaves = width * 0.17;
   let loghieght = log *4;
-
+let treex 
   for( let tree = 1; tree<= 5; tree ++){
+    treex = (width/5 *tree)/2
   fill("#654321");
   stroke("black");
   rect(width/5 *tree,base + 10 - loghieght,log,loghieght);
