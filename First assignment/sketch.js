@@ -55,34 +55,36 @@ fill("#4DA409");
 rect(0,base,width,height-base);;
 stroke("#7CFC00");
 strokeWeight(2);
-for(let loop = 0; loop <= 2500; loop++){
+for(let loop = 0; loop <= 2900; loop++){
   grassX = random(0,width);
   grassY = random(base-15,height);
   line(grassX,grassY,grassX,grassY+15);
 }
 }
 
-function drawTrees(){
+function drawTrees(){ // draws the 5 trees on screen
   let base = sceneHeight *0.8;
   let log =width *0.03;
   let leaves = width * 0.17;
   let loghieght = log *4;
+  let treeAmount =5
 let treex 
-  for( let tree = 1; tree<= 5; tree ++){
-    treex = (width/5 *tree)/2
+let secondx = (width/treeAmount) 
+treex = secondx/1.6
+  for( let tree = 1; tree<= treeAmount; tree ++){ // loop for making the trees so I can change the amount 
   fill("#654321");
   stroke("black");
-  rect(width/5 *tree,base + 10 - loghieght,log,loghieght);
+  rect(secondx *tree - treex,base + 10 - loghieght,log,loghieght);
   fill("green")
   leaves = width * 0.17;
-  triangle(width/5 *tree - leaves/2.7 , base - 40, width/5*tree + leaves/1.7 ,base-40, width/5*tree + log/2, base - 100)
+  triangle(secondx *tree - leaves/2.7- treex , base - 40, secondx*tree + leaves/1.7- treex ,base-40, secondx*tree + log/2- treex, base - 100)
   leaves = leaves*0.6
-  triangle(width/5 *tree- leaves/2, base - 80, width/5*tree + leaves/2 + log ,base-80, width/5*tree + log/2, base - 140)
+  triangle(secondx *tree- leaves/2- treex, base - 80, secondx*tree + leaves/2- treex + log ,base-80, secondx*tree + log/2- treex, base - 140)
   leaves = leaves*0.7
-  triangle(width/5*tree - leaves/2, base - 120, width/5*tree + leaves/2 + log ,base-120, width/5*tree + log/2, base - 180)
+  triangle(secondx*tree - leaves/2- treex, base - 120, secondx*tree + leaves/2- treex + log ,base-120, secondx*tree + log/2- treex, base - 180)
   leaves = leaves*0.7
-  triangle(width/5 *tree- leaves/2, base - 160, width/5*tree + leaves/2 + log ,base-160, width/5*tree + log/2, base - 220)
+  triangle(secondx *tree- leaves/2- treex, base - 160, secondx*tree + leaves/2- treex + log ,base-160, secondx*tree + log/2- treex, base - 220)
   leaves = leaves*0.7
-  triangle(width/5*tree - leaves/2, base - 200, width/5*tree + leaves/2 + log ,base-200, width/5*tree + log/2, base - 260)
+  triangle(secondx*tree - leaves/2- treex, base - 200, secondx*tree + leaves/2- treex + log ,base-200, secondx*tree + log/2- treex, base - 260)
   }
 }
