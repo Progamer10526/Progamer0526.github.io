@@ -4,14 +4,16 @@
 //
 // Extra for Experts:
 // Interactive scene with mutiple scenes and inputs.
-let charX 
-let CharY
-let sceneHeight
-let x 
-let y 
-let gxstore =[]
-let gystore =[]
+let charX ;
+let CharY;
+let sceneHeight;
+let x ;
+let y ;
+let gxstore =[];
+let gystore =[];
 let grasscolor = "#4DA409";
+let colorchange = 0;
+let bkcolor = "skyblue";
 function setup() {
   createCanvas(windowWidth, windowHeight);
   grassNumber();
@@ -24,8 +26,6 @@ function setup() {
 function draw() {
   drawScene();
   drawCharacter();
-  
-
 }
 
 function drawCharacter(){ //draws the alian and ship with variations
@@ -63,11 +63,42 @@ else if(keyIsDown(DOWN_ARROW)){
   y+= 10
 }
 }
+ function backchange(){
+  switch(colorchange){
+    case 0:
+    bkcolor = "skyblue"
+      break;
+    case 1:
+      bkcolor = "darkblue";
+      break;
+    case 2:
+      bkcolor = "black"
+      break;
+    case 3:
+      bkcolor = "gold"
+      break;
+  }
+ }
 
-
+ function mousePressed(){
+  if(mouseButton === CENTER){
+  if(colorchange < 3){
+    colorchange++
+    draw();
+  }
+  else {
+  colorchange = 0;
+  draw();
+  }}
+  else {
+    x = mouseX
+    y = mouseY
+  }
+ }
 
 function drawScene(){ //Draws the first scene
-  background("skyblue");
+backchange();
+background(bkcolor);
 sceneHeight = height;
 drawback();
 drawTrees();
