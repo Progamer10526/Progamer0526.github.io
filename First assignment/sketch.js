@@ -14,7 +14,7 @@ let gystore =[];
 let grasscolor = "#4DA409";
 let colorchange = 0;
 let bkcolor = "skyblue";
-function setup() {
+function setup() { 
   createCanvas(windowWidth, windowHeight);
   grassNumber();
   drawScene();
@@ -23,7 +23,7 @@ function setup() {
   y = height/2
 }
 
-function draw() {
+function draw() { //loop of code
   drawScene();
   drawCharacter();
 }
@@ -49,7 +49,7 @@ circle(x- (leg*3.5), y - (shift/30) ,leg);
 circle(x+ (leg*3.5), y - (shift/30) ,leg);
 }
 
-function control(){
+function control(){ // controls the character using arrow keys 
   if(keyIsDown(RIGHT_ARROW)){
   x += 10
 }
@@ -63,7 +63,7 @@ else if(keyIsDown(DOWN_ARROW)){
   y+= 10
 }
 }
- function backchange(){
+ function backchange(){ // background color changer
   switch(colorchange){
     case 0:
     bkcolor = "skyblue"
@@ -80,8 +80,8 @@ else if(keyIsDown(DOWN_ARROW)){
   }
  }
 
- function mousePressed(){
-  if(mouseButton === CENTER){
+ function mousePressed(){ // check if there is a mouse presss so it can change the state value
+  if(mouseButton === CENTER){ // checks if the mouse press was center button and changes the state value
   if(colorchange < 3){
     colorchange++
     draw();
@@ -90,7 +90,7 @@ else if(keyIsDown(DOWN_ARROW)){
   colorchange = 0;
   draw();
   }}
-  else {
+  else { // mouse input that teleports the character to the mouse pos
     x = mouseX
     y = mouseY
   }
@@ -106,13 +106,13 @@ drawTrees();
  nameplace();
 
 }
-function nameplace(){
+function nameplace(){//Signs the art with my name 
   textSize(30);
   fill("black")
   stroke("black");
   text("Troy H", width - 100,height- 30)
 }
-function grassNumber(){
+function grassNumber(){ //creats and stores the random grass x values
 let grassX;
 let grassY;
   let base = height *0.8;
@@ -176,7 +176,7 @@ treex = secondx/1.6
   }
 }
 
-function drawback(){
+function drawback(){ // draws the mountains in the back 
   let base = sceneHeight *0.8;
   let mountainAmount = 3
   let mWidth = width/mountainAmount
