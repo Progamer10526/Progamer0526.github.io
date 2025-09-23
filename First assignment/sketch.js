@@ -103,7 +103,14 @@ sceneHeight = height;
 drawback();
 drawTrees();
  drawGrass();
+ nameplace();
 
+}
+function nameplace(){
+  textSize(30);
+  fill("black")
+  stroke("black");
+  text("Troy H", width - 100,height- 30)
 }
 function grassNumber(){
 let grassX;
