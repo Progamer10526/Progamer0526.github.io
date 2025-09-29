@@ -5,12 +5,13 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
-let ball; let ball2;
+let ball; let ball2; 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   ball = {x: width/2,y: height/2,size:50, c: color(random(255),random(255),random(255)),timeX: random(100),timeY:random(100), timeOff:0.02, timeC: 0.1};
   ball2 = {x: width/2,y: height/2,size:50, c: color(random(255),random(255),random(255)),timeX: random(100),timeY:random(100), timeOff:0.1, timeC: 0.1};
+
 }
 
 function draw() {
