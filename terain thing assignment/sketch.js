@@ -4,36 +4,46 @@
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
-let linef
+let linefe
 let store = [];
 let changew =1
+let y
+let flagsize 
+let timeshift = 1;
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  linef = {x: 0, Ybase: height, Ytop: height/2, Lnoise: random(200), LNoiseTime: 0.01};
-  drawLine();
+  y = height/2
+  linefe = {x: 0, Ybase: height, Ytop: height/2, Lnoise: random(200), LNoiseTime: 0.01};
+
 }
 
 function draw() {
-  linef.Lnoise = 1
+  linefe.Lnoise = timeshift
   background(225);
   widthcontrol();
   drawLine();
-  flag();
+//  frameRate(1)
+timeshift += 0.1
 
 }
 
 function drawLine(){
   strokeWeight(changew);
   stroke("blue")
+  let top = height
   let dx
-  let y = height/2
+  let x
   for(let w =0; w<= width; w += changew){
-   dx = noise(linef.Lnoise);
+   dx = noise(linefe.Lnoise);
     y = map(dx,0,1,height*0.2,height);
-    line(w,linef.Ybase, w,y)
-    linef.Lnoise += linef.LNoiseTime
-    store.push(y)
+    line(w,linefe.Ybase, w,y)
+    linefe.Lnoise += linefe.LNoiseTime
+    if(y <= top){
+      top = y;
+      x = w;
+    }
   }
+  flag(x,top)
   
 }
 function widthcontrol(){
@@ -46,12 +56,10 @@ else if(keyIsDown(LEFT_ARROW)){
   }
 }}
 
-function flag(){
-  let high = 1
-  for( let x in store){
-    if(store[x] < high){
-      high = store[x];
-    }
-
-  }
+function flag(x,y){
+  flagsize = 50
+   stroke("black");
+   strokeWeight(2);
+   line(x,y,x,y-flagsize);
+   triangle(x,y-flagsize,x,y-(flagsize - flagsize/3),x+(flagsize/2),y-(flagsize/1.2));
 }
