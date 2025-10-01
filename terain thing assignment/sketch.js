@@ -39,7 +39,7 @@ function drawLine(){ // draws the terain and stores values for the flag/average 
   let top = height
   let dx
   let x
-  for(let w =0; w<= width; w += changew){
+  for(let w =0; w<= width; w += changew){ //Loop that fills the screen with the terain
    dx = noise(linefe.Lnoise);
     y = map(dx,0,1,height*0.2,height);
     line(w,linefe.Ybase, w,y)
