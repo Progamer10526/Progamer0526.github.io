@@ -14,14 +14,14 @@ function setup() {
 
 }
 
-function draw() {
+function draw() { // Main loop function
   // background(220);
  moveball(ball);
  moveball(ball2)
 }
 
 
-function moveball(b){
+function moveball(b){ //makes it so you can make the terain bigger and smaller 
   let dx = noise(b.timeX);
   dx = map(dx,0,1,-5,5);
   let dy = noise(b.timeY);
@@ -40,11 +40,7 @@ function moveball(b){
   else if(b.y <= 0){
     b.y += height;
   }
- 
-
   fill(b.c);
-  circle(b.x,b.y,b.size);
   b.timeY += b.timeOff
   b.timeX += b.timeOff
-
 }
