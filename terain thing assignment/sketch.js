@@ -29,7 +29,7 @@ function draw() { // Main loop function that makes the code reapeat
   background(225);
   widthcontrol();
   drawLine();
-timeshift += 0.1
+timeshift += 0.2
 
 }
 
