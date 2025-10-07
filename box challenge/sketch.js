@@ -7,8 +7,8 @@
 
 let boxsize = 100;
 let wall = 0;
-let boxX = 0;let boxY = 0;
-let sped = boxsize*0.1
+let boxX = 0; let boxY = 0;
+let sped = boxsize * 0.1
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -16,43 +16,45 @@ function setup() {
 
 function draw() {
   background(220);
-  drawbox()
+  drawbox();
 }
 
-function wallcalc(){
-  switch(wall){
+function wallcalc() {
+  switch (wall) {
     case 0:
-      if (boxX <= (width - boxsize)){
-        boxX += sped
-      }
-      else{
-        boxX = width - boxsize
-        wall++}
-    break;
-    case 1:
-      if(boxY <= (height - boxsize)){
-        boxY += sped
+      if (boxX <= (width - boxsize)) {
+        boxX += sped;
       }
       else {
-        boxY = height - boxsize
-        wall++;}
-    break;
+        boxX = width - boxsize;
+        wall++;
+      }
+      break;
+    case 1:
+      if (boxY <= (height - boxsize)) {
+        boxY += sped;
+      }
+      else {
+        boxY = height - boxsize;
+        wall++;
+      }
+      break;
     case 2:
-      if(boxX >= 0){
-        boxX -= sped
+      if (boxX >= 0) {
+        boxX -= sped;
       }
       else wall++;
-    break;
+      break;
     case 3:
-      if(boxY >= 0){
-        boxY -= sped
+      if (boxY >= 0) {
+        boxY -= sped;
       }
-      else wall=0;
-    break;
+      else wall = 0;
+      break;
   }
 }
 
-function drawbox(){
-  rect(boxX,boxY,boxsize);
+function drawbox() {
+  rect(boxX, boxY, boxsize);
   wallcalc();
 }
