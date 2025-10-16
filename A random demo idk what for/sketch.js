@@ -6,19 +6,37 @@
 // - describe what you did to take this project "above and beyond"
 let myBook;
 let bookshelf = []
-let type;
+let type = 0;
+let x = 100
+let  x1 = x
+let isbnt = 0
+let covert  = "hardcover"
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
+
+
   //myBook = new Book("Harry","Me",2252,"hardcover",515,width*0.3);
   for(let book = 0; book<= 20;book++){
-    random(0,2);
+
+    type = random(1,3);
+    isbnt = random(200,700)
     switch(type){
-      case 0:
-        type = "softcover"; break;
+      case 1:
+        covert = "softcover";
+         break;
+      case 2:
+        covert = "hardcover";
+         break;
+      case 3:
+        covert = "leatherbound";
+         break;
     }
-    bookshelf.push(new Book());
+    bookshelf.push(new Book("test","me", random(1000,9999), covert, isbnt, x));
+    x += isbnt/10
+    
   }
 }
 
@@ -26,6 +44,7 @@ function draw() {
   background(220);
  for(let book of bookshelf){
   book.dsiplay();
+  book.mouseclickt();
 
   
  }
