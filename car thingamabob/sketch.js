@@ -144,7 +144,7 @@ class Car {
     this.y = this.lanelocation
     this.c = color(random(0, 225), random(0, 225), random(0, 225));
   }
-  move() {
+  move() { // Moves the car fr
     if (stoplight === false) {
       if (this.side === 1) {
         if (this.x1 <= width) {
@@ -161,7 +161,7 @@ class Car {
     }
   }
 
-  display() {
+  display() { // creates the car
     if (this.side === 1) {
       if (this.type === 1) {
         fill(this.c);
@@ -196,7 +196,7 @@ class Car {
   }
 
 
-  speedUp() {
+  speedUp() { //Makes it faster
     if (this.side === 1) {
       if (this.speed <= 40) {
         this.speed += 5;
@@ -210,7 +210,7 @@ class Car {
     }
   }
 
-  speeddown() {
+  speeddown() { //Makes it slower
     if (this.side === 1) {
       if (this.speed >= 20) {
         this.speed -= 5;
@@ -226,18 +226,15 @@ class Car {
   }
 
 
-  changeColor() {
+  changeColor() { //changes the color
     this.c = color(random(0, 225), random(0, 225), random(0, 225));
   }
 
-  changelanet() {
-    if (this.changeLane === false) {
-      this.changeLane = true;
-    }
-    else if (this.changeLane) {
+  changelanet() { //makes it change lanes
+     if (this.changeLane) {
       if (this.side === 1) {
         if (this.lane === 1) {
-          if (this.y !== (2 * hwight) + (hwight * 3)) {
+          if (this.y <(2 * hwight) + (hwight * 3)) {
             this.y += 1;
           }
           else {
@@ -245,7 +242,7 @@ class Car {
           }
         }
         if (this.lane === 2) {
-          if (this.y !== (1 * hwight) + (hwight * 3)) {
+          if (this.y > (1 * hwight) + (hwight * 3)) {
             this.y -= 1;
           }
           else {
@@ -256,7 +253,7 @@ class Car {
       }
       if (this.side === 2) {
         if (this.lane === 1) {
-          if (this.y !== (2 * hwight) + (hwight * 1)) {
+          if (this.y < (2 * hwight) + (hwight * 1)) {
             this.y += 1;
           }
           else {
@@ -264,7 +261,7 @@ class Car {
           }
         }
         if (this.lane === 2) {
-          if (this.y !== (1 * hwight) + (hwight * 1)) {
+          if (this.y > (1 * hwight) + (hwight * 1)) {
             this.y -= 1;
           }
           else {
@@ -295,7 +292,7 @@ class Car {
     }
     this.display();
     this.move();
-    this.changelanet();
+    this.changelanet(); //Can't get working. Super fun
   }
 
 }
