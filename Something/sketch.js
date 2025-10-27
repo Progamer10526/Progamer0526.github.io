@@ -6,7 +6,8 @@
 // - describe what you did to take this project "above and beyond"
 let mySquareeeeeeee;let totalBounce=0;let squares = []
 
-function setup(){createCanvas(windowWidth, windowHeight);squares.push(new Bouncer(width/2,height/2));textSize(30);textAlign(CENTER,CENTER);if(localStorage.getItem("numBounces")===null){localStorage.setItem("numBounces",0)}else{totalBounce =int(localStorage.getItem("numBounces"))}}
+function setup(){createCanvas(300, 300);//squares.push(new Bouncer(width/2,height/2));
+  textSize(30);textAlign(CENTER,CENTER);if(localStorage.getItem("numBounces")===null){localStorage.setItem("numBounces",0)}else{totalBounce =int(localStorage.getItem("numBounces"))}}
 function draw(){
   fill(100,100,100,20);
   rect(0,0,width,height)
@@ -24,7 +25,7 @@ function mouseClicked(){
 }
 
 function keyPressed(){
-  for(let x =0;x<10000;x++){
+  for(let x =0;x<1000000;x++){
   squares.push(new Bouncer(width/2,height/2))}
 }
 
