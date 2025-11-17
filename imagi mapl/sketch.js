@@ -29,10 +29,11 @@ function draw() {
  // background(0);
   // textImage();
   // }
- removegreen()
- absolute();
-  positize()
-  mirror()
+  FiveColor()
+//  removegreen()
+//  MajorityColor();
+
+  // mirror()
   updatePixels();
 }
 
@@ -99,7 +100,7 @@ function boost(){
 //   resizeCanvas(pilot.width,pilot.height,false)
 // }
 
-function absolute(){
+function MajorityColor(){
   for(let i = 0; i < pixels.length; i += 4){
     let r = pixels[i] ;
     let g = pixels[i + 1] ;
@@ -138,7 +139,7 @@ function absolute(){
   }}}
 
 
-  function positize(){
+  function FiveColor(){ //
     for(let y = 0; y < pilot.height; y += 1){
       for(let x = 0; x  < pilot.width; x += 1){
       let apl = getAvg(x,y);
@@ -196,7 +197,7 @@ async function loadAssets(){
   //pilot.hide();
   // pilot = await loadImage("/chip.jpg");
  // pilot = await loadImage("/race.jpg");
- // pilot = await loadImage("/nuit.jpg");
-    pilot = await loadImage("/hand.jpg");
+//  pilot = await loadImage("/nuit.jpg");
+ pilot = await loadImage("/hand.jpg");
 
 }
