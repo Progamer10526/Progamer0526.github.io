@@ -22,39 +22,14 @@ function setPixel(x, y, r, g, b){
 function draw() {
   resizeCanvas(pilot.width,pilot.height,false)
   image(pilot, 0, 0) 
-   // if(stared){
-  // image(pilot, 0, 0)
   loadPixels(); 
-    
- // background(0);
-  // textImage();
-  // }
-  FiveColor()
+  // FiveColor()
 //  removegreen()
 //  MajorityColor();
-
   // mirror()
+  rotatepic();
   updatePixels();
 }
-
-function textImage(){
-  fill(255);
-  let scalefactor =5;
-  textSize(scalefactor)
-  for(let x = 0; x < width; x += scalefactor){
-    for(let y = 0; y < height; y += scalefactor){
-      let avg = getAvg(x, y);
-      if(avg > 220)      text("&", x, y);
-      else if(avg > 180) text("O", x, y);
-      else if(avg > 140) text("/", x, y);
-      else if(avg > 100) text("=", x, y);
-      else if(avg > 40) text(",", x, y);
-    }
-  }
-}
-
-
-
 
 function getAvg(x, y){
   let i = (width*y + x) * 4;
@@ -76,31 +51,7 @@ function getcolors(){
   return(colrs)
 }
 
-
-
-
-
-
-
-function boost(){
-  // brightening filter
-  let boost = map(mouseX, 0, width, -100, 100)
-  for(let i = 0; i < pixels.length; i += 4){
-    let r = pixels[i] + boost;
-    let g = pixels[i + 1] + boost;
-    let b = pixels[i + 2] + boost;
-    setPixelOneD(i, r, g, b);
-  }
-}
-
-
-// function mousePressed(){
-//   stared = true;
-
-//   resizeCanvas(pilot.width,pilot.height,false)
-// }
-
-function MajorityColor(){
+function MajorityColor(){ // set pixel to the highest color value 
   for(let i = 0; i < pixels.length; i += 4){
     let r = pixels[i] ;
     let g = pixels[i + 1] ;
@@ -117,7 +68,7 @@ function MajorityColor(){
     }
   }
 
-  function removegreen(){
+  function removegreen(){ //removes green color from half of the sceen
     for(let y = 0; y < pilot.height; y += 1){
       for(let x = 0; x  < pilot.width; x += 1){
         let post = (x+ (y*pilot.width))*4
@@ -139,7 +90,7 @@ function MajorityColor(){
   }}}
 
 
-  function FiveColor(){ //
+  function FiveColor(){ //sets the pixels color to a set value dependidn on brightness
     for(let y = 0; y < pilot.height; y += 1){
       for(let x = 0; x  < pilot.width; x += 1){
       let apl = getAvg(x,y);
@@ -176,7 +127,7 @@ function MajorityColor(){
     }}
   }
 
-function mirror(){
+function mirror(){ //Mirrors the right side of the image 
   
   for(let y = 0; y < pilot.height; y += 1){
     let offset = pilot.width *4
@@ -191,13 +142,36 @@ function mirror(){
         offset -= 8
 }
 }}}
-async function loadAssets(){
+
+function rotatepic(){
+  let pilotClone = structuredClone(pilot)
+  let yoffset = pilot.height *4
+  for(let y = 0; y < pilot.height; y += 1){
+    let xoffset = pilot.width *4
+    for(let x = 0; x  < pilot.width; x += 1){
+      
+      if((x < pilot.width/2) &&(y < pilot.height/2) ){
+        let post = ((x+ ((y + yoffset)*pilot.width))*4) 
+        let r = pixels[post]
+        let g =pixels[post+1] ;
+        let b = pixels[post+2]
+        setPixelOneD((x +(y*width))*4,r,g,b)
+        
+      }
+
+    }
+    yoffset ++
+  }
+}
+
+async function loadAssets(){ // loads images 
   //pilot = await loadImage("/aviator.png");
   //pilot = await createVideo("/bball.mp4")
   //pilot.hide();
   // pilot = await loadImage("/chip.jpg");
  // pilot = await loadImage("/race.jpg");
 //  pilot = await loadImage("/nuit.jpg");
- pilot = await loadImage("/hand.jpg");
+//  pilot = await loadImage("/hand.jpg");
+pilot = await loadImage("/butterfly.jpg");
 
 }
