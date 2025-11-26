@@ -38,7 +38,7 @@ if(d>7){
 
 } 
 function draw() {
-  if(spin > 360) spin = 0;
+  if(spin >= 360) spin = 0;
   background(0);
   //cenerCircle(windowWidth/2,windowHeight/2,width/20)
   translate(windowWidth/2,windowHeight/2)
